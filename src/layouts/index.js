@@ -19,9 +19,9 @@ class BasicLayout extends React.Component {
 
   render() {
     return (
-      <Layout className="layout">
+      <Layout >
         <Header>
-          <div style={style.log} />
+          <div className={style.logo} />
           <Menu
           theme="dark"
           onClick={this.handleClick}
@@ -32,29 +32,32 @@ class BasicLayout extends React.Component {
           >
           
             <Menu.Item key="mail">
-              <Icon type="mail" />Navigation One
+              <Icon type="mail" />首页
             </Menu.Item>
             <Menu.Item key="app" disabled>
-              <Icon type="appstore" />Navigation Two
+              <Icon type="appstore" />论坛
             </Menu.Item>
-            <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />Navigation Three - Submenu</span>}>
-              <MenuItemGroup title="Item 1">
-                <Menu.Item key="setting:1">Option 1</Menu.Item>
-                <Menu.Item key="setting:2">Option 2</Menu.Item>
+            <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />大数据报告</span>}>
+              <MenuItemGroup title="交通">
+                <Menu.Item key="setting:1">春运</Menu.Item>
+                <Menu.Item key="setting:2">周末</Menu.Item>
               </MenuItemGroup>
-              <MenuItemGroup title="Item 2">
-                <Menu.Item key="setting:3">Option 3</Menu.Item>
-                <Menu.Item key="setting:4">Option 4</Menu.Item>
+              <MenuItemGroup title="商业">
+                <Menu.Item key="setting:3">超市</Menu.Item>
+                <Menu.Item key="setting:4">旅游</Menu.Item>
               </MenuItemGroup>
             </SubMenu>
             <Menu.Item key="alipay">
-              <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
+              <a href="https://ant.design" target="_blank" rel="noopener noreferrer">活动与合作</a>
             </Menu.Item>
           </Menu>
         </Header>
-        <Content style={{ padding: '0 50px' }}>
+        <Content style={{ padding: '24px 0', background: '#fff' }}>
           { this.props.children }
         </Content>
+        <Footer style={{ position:'relative' ,textAlign: 'center', bottom: 0 , width: '100%' }}>
+          阳江移动 ©2018 Created by Deeao
+        </Footer>
       </Layout>
     );
   }
