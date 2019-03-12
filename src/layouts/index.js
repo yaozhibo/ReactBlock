@@ -38,14 +38,13 @@ class BasicLayout extends React.Component {
   render() {
     return (
       <Layout >
-        <Header>
-          {/* <div className={style.logo} align="middle"><img src={require('@/assets/icon/logo.svg')} alt="logo" style={{width: '35px'}}/>阳江移动大数据</div> */}
+        <Header style={{background: '#fff', padding: '0'}}>
           <Menu
             theme="dark"
             onClick={this.handleClick}
             // selectedKeys={[this.state.current]}
             mode="horizontal"
-            defaultSelectedKeys={['2']}
+            // defaultSelectedKeys={['2']}
             style={{ lineHeight: '64px' }}
           >
             <Menu.Item key="home1" href="home">

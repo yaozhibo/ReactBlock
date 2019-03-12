@@ -1,15 +1,14 @@
 .logo {
-  width: 240px;
+  /* width: 240px; */
   /* height: 31px; */
   /* background: rgba(255,255,255,.2); */
   /* margin: 16px 24px 16px 0; */
   color: #fff !important;
-  font-weight: 600;
+  font-weight: 350;
   font-size: 1.7em;
   text-align: center;
   /* float: left; */
 }
-
 html {
   overflow-x:hidden
 }

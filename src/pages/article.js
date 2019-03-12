@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'dva'
-import { BackTop, Row, Skeleton } from 'antd'
+import { BackTop, Row, Skeleton, Badge } from 'antd'
 import ResultDiv from '@/components/ResultDiv'
 import Sider from '@/components/Sider'
 import styles from '@/assets/css/markdown.css'
@@ -47,7 +47,7 @@ class article extends PureComponent {
       )
     }
     const { loadingSkeleton, dataDivState } = this.state
-
+    const categories = article.categories ? article.categories : []
     return (
       <div>
         <Skeleton loading={loadingSkeleton} active>
@@ -60,6 +60,13 @@ class article extends PureComponent {
                 <div className={styles.markdown}>
                   <h2 className={styles.title}>{article.title}</h2>
                   <p className={styles.title}>{`作者：${article.author}`}</p>
+                  <p className={styles.title}>
+                    {categories.map(item => {
+                      return (
+                        <a href={`/category?name=${item}`}><Badge status="default" text={item} />&nbsp;</a>
+                      )
+                    })}
+                  </p>
                   <p className={styles.title}>{`发布时间：${article.created_at}`}</p>
                   <div dangerouslySetInnerHTML={{ __html: article.content }} />
                   <BackTop />
