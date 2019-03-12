@@ -1,67 +1,80 @@
 import React from 'react'
-import { Layout,Menu, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import style from './index.css'
 const { Header, Content, Footer } = Layout;
 const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 class BasicLayout extends React.Component {
-  state = {
-    current: 'mail',
-  }
 
   handleClick = (e) => {
     console.log('click ', e);
-    this.setState({
-      current: e.key,
-    });
+    window.location.href = (`/${e.item.props.href}`)
   }
 
+  //取相对路径的第一栏
+  getRelativeUrl = () => {
+    const url = document.location.toString();
+    let arrUrl = url.split("//");
+    arrUrl[1] = arrUrl[1].replace(/\//g, "$")
+    arrUrl[1] = arrUrl[1].replace(/\?/g, "$")
+    arrUrl[1] = arrUrl[1].replace(/\#/g, "$")
+    const start = arrUrl[1].indexOf("$");
+    const end = arrUrl[1].indexOf('$', start + 1)
+    if (end === -1) {
+      var relUrl = arrUrl[1].substring(start + 1);//stop省略，截取从start开始到结尾的所有字符
+    } else {
+      relUrl = arrUrl[1].substring(start + 1, end)
+    }
+    console.log(relUrl)
+    return relUrl;
+  }
+
+  componentDidMount() {
+    const page = this.getRelativeUrl()
+    this.setState({
+      current: page,
+    })
+  }
   render() {
     return (
       <Layout >
         <Header>
-          <div className={style.logo} />
+          {/* <div className={style.logo} align="middle"><img src={require('@/assets/icon/logo.svg')} alt="logo" style={{width: '35px'}}/>阳江移动大数据</div> */}
           <Menu
-          theme="dark"
-          onClick={this.handleClick}
-          selectedKeys={[this.state.current]}
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          style={{ lineHeight: '64px' }}
+            theme="dark"
+            onClick={this.handleClick}
+            // selectedKeys={[this.state.current]}
+            mode="horizontal"
+            defaultSelectedKeys={['2']}
+            style={{ lineHeight: '64px' }}
           >
-          
-            <Menu.Item key="mail">
-              <Icon type="mail" />首页
+            <Menu.Item key="home1" href="home">
+              <div className={style.logo} align="middle" ><img src={require('@/assets/icon/logo.svg')} alt="logo" style={{width: '35px'}}/>阳江移动大数据</div>
             </Menu.Item>
-            <Menu.Item key="app" disabled>
-              <Icon type="appstore" />论坛
+            <Menu.Item key="home" href="home">
+              <Icon type="home" />首页
             </Menu.Item>
             <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />大数据报告</span>}>
-              <MenuItemGroup title="交通">
-                <Menu.Item key="setting:1">春运</Menu.Item>
-                <Menu.Item key="setting:2">周末</Menu.Item>
-              </MenuItemGroup>
-              <MenuItemGroup title="商业">
-                <Menu.Item key="setting:3">超市</Menu.Item>
-                <Menu.Item key="setting:4">旅游</Menu.Item>
-              </MenuItemGroup>
+              <Menu.Item key="category:1" href="category?name=交通">交通</Menu.Item>
+              <Menu.Item key="category:2" href="category?name=旅游">旅游</Menu.Item>
+              <Menu.Item key="category:3" href="category?name=农商">农商</Menu.Item>
+              <Menu.Item key="category:4" href="category?name=政府">政府</Menu.Item>
             </SubMenu>
-            <Menu.Item key="alipay">
-              <a href="https://ant.design" target="_blank" rel="noopener noreferrer">活动与合作</a>
+            <Menu.Item key="contact" href="contact">
+              活动与合作
             </Menu.Item>
           </Menu>
         </Header>
-        <Content style={{ padding: '24px 0', background: '#fff' }}>
-          { this.props.children }
+        <Content style={{ minHeight: '500px' }}>
+          {this.props.children}
         </Content>
-        <Footer style={{ position:'relative' ,textAlign: 'center', bottom: 0 , width: '100%' }}>
+        <Footer style={{ position: 'relative', textAlign: 'center', bottom: 0, width: '100%' }}>
           阳江移动 ©2018 Created by Deeao
         </Footer>
       </Layout>
     );
   }
-  
+
 }
 
 export default BasicLayout;
