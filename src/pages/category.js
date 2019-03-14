@@ -91,7 +91,7 @@ class Category extends PureComponent {
                         <img src={category.cover} style={{ width: '100%', padding: '10px' }} alt="" />
                       </Col>
                       <Col lg={10}>
-                        <h3>
+                        <h3>版本：
                           <Select defaultValue={this.state.version} style={{ maxWidth: 120 }} onChange={this.handleChange} size="small">
                             <Option value="2019">2019</Option>
                             <Option value="2018">2018</Option>

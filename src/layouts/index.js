@@ -38,7 +38,7 @@ class BasicLayout extends React.Component {
   render() {
     return (
       <Layout >
-        <Header style={{background: '#fff', padding: '0'}}>
+        <Header style={{ background: '#fff', padding: '0' }}>
           <Menu
             theme="dark"
             onClick={this.handleClick}
@@ -48,19 +48,19 @@ class BasicLayout extends React.Component {
             style={{ lineHeight: '64px' }}
           >
             <Menu.Item key="home1" href="home">
-              <div className={style.logo} align="middle" ><img src={require('@/assets/icon/logo.svg')} alt="logo" style={{width: '35px'}}/>阳江移动大数据</div>
+              <div className={style.logo} align="middle" ><img src={require('@/assets/icon/logo.svg')} alt="logo" style={{ width: '35px' }} />阳江移动大数据</div>
             </Menu.Item>
             <Menu.Item key="home" href="home">
               <Icon type="home" />首页
             </Menu.Item>
-            <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />大数据报告</span>}>
+            <SubMenu title={<span className="submenu-title-wrapper"><Icon type="read" />大数据报告</span>}>
               <Menu.Item key="category:1" href="category?name=交通">交通</Menu.Item>
               <Menu.Item key="category:2" href="category?name=旅游">旅游</Menu.Item>
               <Menu.Item key="category:3" href="category?name=农商">农商</Menu.Item>
               <Menu.Item key="category:4" href="category?name=政府">政府</Menu.Item>
             </SubMenu>
             <Menu.Item key="contact" href="contact">
-              活动与合作
+              <Icon type="wechat" />联系与合作
             </Menu.Item>
           </Menu>
         </Header>

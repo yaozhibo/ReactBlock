@@ -26,6 +26,9 @@ export default [
         path: '/contact',
         name: 'contact',
         component: './contact'
+      },
+      {
+        component: '404'
       }
     ]
   }
