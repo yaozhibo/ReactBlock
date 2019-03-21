@@ -15,6 +15,7 @@ export default [
       {
         path: '/category',
         name: 'category',
+        title: '大数据报告',
         component: './category',
       },
       {
@@ -25,6 +26,7 @@ export default [
       {
         path: '/contact',
         name: 'contact',
+        title: '联系我们',
         component: './contact'
       },
       {
