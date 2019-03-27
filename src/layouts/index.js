@@ -36,6 +36,7 @@ class BasicLayout extends React.Component {
     })
   }
   render() {
+    const QRCode = require('@/assets/image/guanjingtai.png')
     return (
       <Layout >
         <Header style={{ background: '#fff', padding: '0' }}>
@@ -68,6 +69,7 @@ class BasicLayout extends React.Component {
           {this.props.children}
         </Content>
         <Footer style={{ position: 'relative', textAlign: 'center', bottom: 0, width: '100%' }}>
+          <img src={QRCode} alt="" style={{width: 80, margin:10}}/>
           阳江移动 ©2018 Created by Deeao
         </Footer>
       </Layout>
