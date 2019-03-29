@@ -10,7 +10,7 @@ export default {
   effects: {
     * fetch({ payload, callback }, { put, call }) {
       const response = yield call(queryArticle, payload)
-      if (response.data.status !== 50000) if (callback) callback(response.data.data)
+      if (response.data.status !== 50000) if (callback) callback()
       yield put({
         type: 'save',
         payload: response.data.data,
@@ -18,7 +18,7 @@ export default {
     },
     * fetchWeChatJsSdkConfig({ payload, callback }, { put, call }) {
       const response = yield call(queryWeChatJsSdkConfig, payload)
-      if (response.data.status !== 50000) if (callback) callback()
+      if (response.data.status !== 50000) if (callback) callback(response.data.data)
       yield put({
         type: 'saveWechatJsSdkConfig',
         payload: response.data.data,
