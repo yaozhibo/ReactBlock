@@ -38,7 +38,7 @@ class Sider extends PureComponent {
             </div>
 
             <Drawer
-              title={category ? <h3 style={{color:'#fff'}}><span style={{backgroundColor: '#1890ff', padding: '10px', borderRadius: '25px'}}>{category.name}</span></h3> : ''}
+              title={category ? <h3 style={{ color: '#fff' }}><span style={{ backgroundColor: '#1890ff', padding: '10px', borderRadius: '25px' }}>{category.name}</span></h3> : ''}
               placement={this.state.placement}
               closable={false}
               onClose={this.onClose}
@@ -52,7 +52,7 @@ class Sider extends PureComponent {
               </div>
               {list ? list.map((item, k) => {
                 return (
-                  <li key={k}><a style={{color: '#808080', textDecoration: 'underline'}} href={`/article?category=${category.name}&slug=${item.slug}`}>{item.title}</a></li>
+                  <li key={k}><a style={{ color: '#808080', textDecoration: 'underline' }} href={`/article?category=${category.slug}&slug=${item.slug}`}>{item.title}</a></li>
                 )
               }) : ''}
             </Drawer>

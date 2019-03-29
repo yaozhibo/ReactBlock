@@ -123,7 +123,7 @@ class Category extends PureComponent {
                             extra={<p>{item.created_at}</p>}
                           >
                             <List.Item.Meta
-                              title={<Link to={`/article?category=${category.name}&slug=${item.slug}`}>{item.title}</Link>}
+                              title={<Link to={`/article?category=${category.slug}&slug=${item.slug}`}>{item.title}</Link>}
                               description={<div><p>作者：{item.author}</p> </div>}
                             />
                           </List.Item>
