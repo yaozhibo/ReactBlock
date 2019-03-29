@@ -57,9 +57,9 @@ class article extends PureComponent {
           })
           window.wx.ready(function () {
             window.wx.updateTimelineShareData({
-              title: 'test', // 分享标题
-              link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-              imgUrl: '', // 分享图标
+              title: 'yangjiangdashuju', // 分享标题
+              link: 'http://data.gmcczq.com', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+              imgUrl: 'hhttp://data.gmcczq.com:8083/svg/icon/avatar_astronaut.svg', // 分享图标
               success: function () {
                 // 设置成功
                 console.info('share success')
