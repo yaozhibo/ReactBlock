@@ -10,7 +10,7 @@ export default {
   effects: {
     * fetch({ payload, callback }, { put, call }) {
       const response = yield call(queryArticle, payload)
-      if (response.data.status !== 50000) if (callback) callback()
+      if (response.data.status !== 50000) if (callback) callback(response.data.data)
       yield put({
         type: 'save',
         payload: response.data.data,
