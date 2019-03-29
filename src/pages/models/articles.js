@@ -1,10 +1,11 @@
-import { queryArticle } from '@/services/api'
+import { queryArticle, queryWeChatJsSdkConfig } from '@/services/api'
 
 export default {
   namespace: 'articles',
 
   state: {
     article: {},
+    wechatjsconfig: {},
   },
   effects: {
     * fetch({ payload, callback }, { put, call }) {
@@ -15,6 +16,14 @@ export default {
         payload: response.data.data,
       })
     },
+    * fetchWeChatJsSdkConfig({ payload, callback }, { put, call }) {
+      const response = yield call(queryWeChatJsSdkConfig, payload)
+      if (response.data.status !== 50000) if (callback) callback()
+      yield put({
+        type: 'saveWechatJsSdkConfig',
+        payload: response.data.data,
+      })
+    }
   },
   reducers: {
     save(state, action) {
@@ -23,5 +32,11 @@ export default {
         article: action.payload,
       }
     },
+    saveWechatJsSdkConfig(state, action) {
+      return {
+        ...state,
+        wechatjsconfig: action.payload,
+      }
+    }
   },
 }

@@ -18,3 +18,12 @@ export async function queryArticle(params) {
     }
   })
 }
+
+export async function queryWeChatJsSdkConfig(params) {
+  return request('/api/wechat/jssdkconfig', {
+    method: 'POST',
+    body: {
+      ...params,
+    }
+  })
+}
