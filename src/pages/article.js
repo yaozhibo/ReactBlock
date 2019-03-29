@@ -67,8 +67,10 @@ class article extends PureComponent {
               success: function () {
                 // 设置成功
                 console.info('share success')
+                alert('share success')
               }
             })
+            alert('share')
           })
         }
 
