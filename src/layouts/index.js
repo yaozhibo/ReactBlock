@@ -69,8 +69,8 @@ class BasicLayout extends React.Component {
           {this.props.children}
         </Content>
         <Footer style={{ position: 'relative', textAlign: 'center', bottom: 0, width: '100%' }}>
-          <img src={QRCode} alt="" style={{width: 80, margin:10}}/>
-          阳江移动 ©2018 Created by Deeao
+          <p><img src={QRCode} alt="" style={{ width: 80, margin: 10 }} /></p>
+          <p>阳江移动 ©2018 Created by Deeao</p>
         </Footer>
       </Layout>
     );
