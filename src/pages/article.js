@@ -16,7 +16,8 @@ class article extends PureComponent {
     dataDivState: false,
   }
 
-  componentDidMount() {
+  constructor() {
+    super()
     const { query } = this.props.location
     const { slug, category } = query
     const params = { slug, category }
