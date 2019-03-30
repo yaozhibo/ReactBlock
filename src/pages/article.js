@@ -50,16 +50,16 @@ class article extends PureComponent {
           window.wx.config({
             debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
             appId: 'wx68baa53e9882bd66', // 必填，公众号的唯一标识
-            timestamp: '1553875638', // 必填，生成签名的时间戳
-            nonceStr: 'vODGFoc5cPEqq8FL', // 必填，生成签名的随机串
-            signature: '4708a880dd78fe78d33be87200ed334a2eac1dff',// 必填，签名
+            timestamp: wechatjsconfig.timestamp, // 必填，生成签名的时间戳
+            nonceStr: wechatjsconfig.nonceStr, // 必填，生成签名的随机串
+            signature: wechatjsconfig.signature,// 必填，签名
             jsApiList: wechatjsconfig.jsApiList // 必填，需要使用的JS接口列表
           })
           window.wx.ready(function () {
             window.wx.updateTimelineShareData({
-              title: 'yangjiangdashuju', // 分享标题
-              link: 'http://data.gmcczq.com/article?category=wNrjbufoPrOW&slug=9gpsK9njvWBK', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-              imgUrl: 'hhttp://data.gmcczq.com:8083/svg/icon/avatar_astronaut.svg', // 分享图标
+              title: 'test', // 分享标题
+              link: wechatjsconfig.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+              imgUrl: '', // 分享图标
               success: function () {
                 // 设置成功
                 console.info('share success')
@@ -77,7 +77,7 @@ class article extends PureComponent {
           })
           window.wx.error(function (res) {
             // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-            alert('Error ' + res)
+            alert('Error' + res)
           });
         }
 
