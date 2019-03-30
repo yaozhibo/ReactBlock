@@ -27,6 +27,7 @@ class article extends PureComponent {
       type: 'articles/fetch',
       payload: { ...params },
       callback: () => {
+        this.shareToWechat()
         this.toggleDataDivStateAndSpinState(false)
       },
     })
@@ -45,9 +46,7 @@ class article extends PureComponent {
       type: 'articles/fetchWeChatJsSdkConfig',
       payload: { url: window.location.href },
       callback: function (wechatjsconfig) {
-        console.log(wechatjsconfig)
         if (wechatjsconfig) {
-          alert(wechatjsconfig)
           window.wx.config({
             debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
             appId: 'wx68baa53e9882bd66', // 必填，公众号的唯一标识
@@ -64,14 +63,13 @@ class article extends PureComponent {
             window.wx.updateTimelineShareData({
               title: 'test', // 分享标题
               link: wechatjsconfig.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-              imgUrl: 'http://data.gmcczq.com:8083/svg/icon/avatar_astronaut.svg', // 分享图标
+              imgUrl: 'http://data.gmcczq.com/pic_3.jpg', // 分享图标
               success: function () {
                 // 设置成功
                 console.info('share success')
                 alert('share success')
               }
             })
-            alert('share')
           })
           window.wx.error(function (res) {
             // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
