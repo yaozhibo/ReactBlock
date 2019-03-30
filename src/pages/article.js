@@ -26,8 +26,8 @@ class article extends PureComponent {
     dispatch({
       type: 'articles/fetch',
       payload: { ...params },
-      callback: () => {
-        this.shareToWechat()
+      callback: (article) => {
+        this.shareToWechat(article)
         this.toggleDataDivStateAndSpinState(false)
       },
     })
@@ -40,7 +40,7 @@ class article extends PureComponent {
     })
   }
 
-  shareToWechat = () => {
+  shareToWechat = (article) => {
     const { dispatch } = this.props
     dispatch({
       type: 'articles/fetchWeChatJsSdkConfig',
@@ -56,32 +56,25 @@ class article extends PureComponent {
             jsApiList: wechatjsconfig.jsApiList // 必填，需要使用的JS接口列表
           })
 
-          window.globalShareDataWx = {
-            title: 'test'
-          }
           window.wx.ready(function () {
             window.wx.updateTimelineShareData({
-              title: 'test', // 分享标题
+              title: article.title, // 分享标题
               link: wechatjsconfig.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
               imgUrl: 'http://data.gmcczq.com/pic_3.jpg', // 分享图标
               success: function () {
                 // 设置成功
-                console.info('share success')
-                alert('share success')
+                console.info('wechat share configed')
               }
             })
           })
           window.wx.error(function (res) {
             // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-            alert(res)
+            console.info(res)
           });
         }
 
       },
     })
-
-
-
   }
 
   render() {
@@ -115,7 +108,6 @@ class article extends PureComponent {
                   </p>
                   <p className={styles.title}>{`发布时间：${article.created_at}`}</p>
                   <div dangerouslySetInnerHTML={{ __html: article.content }} />
-                  <button type="primary" onClick={this.shareToWechat}>分享</button>
                   <BackTop />
                 </div>
               </Row>
