@@ -26,8 +26,7 @@ class article extends PureComponent {
     dispatch({
       type: 'articles/fetch',
       payload: { ...params },
-      callback: (article) => {
-        this.shareToWechat(article)
+      callback: () => {
         this.toggleDataDivStateAndSpinState(false)
       },
     })
@@ -79,12 +78,13 @@ class article extends PureComponent {
 
   render() {
     const { articles: { article } } = this.props
-
     if (!article) {
       return (
         ResultDiv({ type: 'error', title: '无此内容', msg: '请确认输入...' })
       )
     }
+    this.shareToWechat(article)
+
     const { loadingSkeleton, dataDivState } = this.state
     const categories = article.categories ? article.categories : []
     return (
