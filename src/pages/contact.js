@@ -1,41 +1,29 @@
-import { Row, Col } from 'antd'
-import styles from './index.css'
+import styles from './index.css';
+import { Image } from 'semantic-ui-react';
 
 const contact = () => {
   return (
     <div className={styles.contact}>
-      <Row>
-        <img src={require('@/assets/image/contact.jpg')} style={{ width: '100%' }} alt="" />
-      </Row>
-      <Row type="flex" justify="center" gutter="200" className={styles.normal}>
-        <Col lg="8">
-          <Row type="flex" justify="center" align="middle" gutter="20">
-            <Col lg="2">
-              <img src={require('@/assets/image/chat.png')} />
-            </Col>
-            <Col lg="6">
-              <h2>售前服务</h2>
-              <p>提供云服务产品咨询服务</p>
-              <h3>联系电话: 138-2766-9692</h3>
-            </Col>
-          </Row>
-        </Col>
-        <Col lg="8">
-          <Row type="flex" justify="center" align="middle" gutter="20">
-            <Col lg="2">
-              <img src={require('@/assets/image/phone.png')} />
-            </Col>
-            <Col lg="6">
-              <h2>售后服务</h2>
-              <p>提供 7*24 小时技术支持服务</p>
-              <h3>工单服务: <a href="https://ecloud.10086.cn/op-console-global/subsystem?type=issue">工单提交系统</a></h3>
-              <h3>服务热线: 4001810086</h3>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </div>
-  )
-}
+      <img src={require('@/assets/image/contact.jpg')} style={{ width: '100%' }} alt="" />
+      <h2>关于我们</h2>
+      <p>我们敬畏自然与生命，</p>
+      <p>我们渴望自由，</p>
+      <p>我们希望走向世界，</p>
+      <p>我们期望了解宇宙的本源，</p>
+      <p>我们追逐科技的创新，</p>
+      <p>我们追随诗的情怀，</p>
+      <p>我们脚踏实地，</p>
+      <p>我们从不放弃梦想，</p>
+      <p>我们不畏惧挑战，</p>
+      <p>我们不忘初心。</p>
 
-export default contact
+      <h2>联系我们</h2>
+      <h3>微信：</h3>
+      <Image src={require('@/assets/image/49164e5ef8f82bdf6621d23806da454.png')} width={150} />
+      <h3>电话：</h3>
+      <span>+86 15919025951</span>
+    </div>
+  );
+};
+
+export default contact;

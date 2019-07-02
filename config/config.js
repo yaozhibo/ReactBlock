@@ -1,31 +1,33 @@
-import { resolve } from 'path'
-import pageRoutes from './router.config'
+import { resolve } from 'path';
+import pageRoutes from './router.config';
 
 const plugins = [
   // ref: https://umijs.org/plugin/umi-plugin-react.html
-  ['umi-plugin-react', {
-    antd: true,
-    dva: true,
-    dynamicImport: { webpackChunkName: true },
-    title: 'YiDongDataForum',
-    dll: true,
-    routes: {
-      exclude: [
+  [
+    'umi-plugin-react',
+    {
+      antd: true,
+      dva: true,
+      dynamicImport: { webpackChunkName: true },
+      title: 'YiDongDataForum',
+      dll: false,
+      routes: {
+        exclude: [
+          /models\//,
+          /services\//,
+          /model\.(t|j)sx?$/,
+          /service\.(t|j)sx?$/,
 
-        /models\//,
-        /services\//,
-        /model\.(t|j)sx?$/,
-        /service\.(t|j)sx?$/,
-
-        /components\//,
-      ],
+          /components\//,
+        ],
+      },
     },
-  }],
-]
+  ],
+];
 
 const alias = {
   '@': resolve('src'),
-}
+};
 
 export default {
   plugins,
@@ -36,8 +38,8 @@ export default {
   alias,
   proxy: {
     '/api': {
-      target: 'http://yidongdataadmin.test',
+      target: 'http://localhost:8081',
       changeOrigin: true,
     },
   },
-}
+};

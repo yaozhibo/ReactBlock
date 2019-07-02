@@ -1,26 +1,4 @@
-
-<p align="center">
-  <a href="https://github.com/yaozhibo">
-    <img alt="antd-admin" height="64" src="http://www.nanoparticles.cn/uploads/images/avatar/yyaozhibo@163.com/201808/1_1533736145.jpeg">
-  </a>
-</p>
-
-<h1 align="center">移动大数据论坛</h1>
-
-<div align="center">
-
-A excellent front-end solution for enterprise applications.
-
-[![antd](https://img.shields.io/badge/antd-^3.10.0-blue.svg?style=flat-square)](https://github.com/ant-design/ant-design)
-[![umi](https://img.shields.io/badge/umi-^2.2.1-orange.svg?style=flat-square)](https://github.com/umijs/umi)
-[![GitHub issues](https://img.shields.io/github/issues/zuiidea/antd-admin.svg?style=flat-square)](https://github.com/zuiidea/antd-admin/issues)
-[![MIT](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](http://opensource.org/licenses/MIT)
-![Travis (.org)](https://img.shields.io/travis/zuiidea/antd-admin.svg)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/zuiidea/antd-admin/pulls)
-[![Gitter](https://img.shields.io/gitter/room/antd-admin/antd-admin.svg)](https://gitter.im/antd-admin/antd-admin)
-
-</div>
-
+<h1 align="center">React 社区框架</h1>
 
 ## Features
 

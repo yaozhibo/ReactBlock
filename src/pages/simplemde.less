@@ -1,0 +1,77 @@
+:global(.editor-preview) pre,
+:global(.editor-preview-side) pre {
+  background: #282c34 !important;
+  display: block;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+:global(.editor-preview) pre code,
+kbd,
+samp,
+:global(.editor-preview-side) pre code,
+kbd,
+samp {
+  color: #fff;
+  font-family: monaco, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  max-width: inherit;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  overflow: initial;
+  border: 0;
+}
+:global(.editor-preview) code,
+:global(.editor-preview-side) code {
+  background: rgba(90, 87, 87, 0);
+  margin: 5px;
+  font-family: monaco, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  color: #858080;
+  border-radius: 4px;
+  background-color: #f9fafa;
+  border: 1px solid #e4e4e4;
+  max-width: 740px;
+  // overflow-x: auto;
+  // font-size: 14px;
+  padding: 1px 5px;
+  text-shadow: 0 0 black;
+  box-shadow: 0 0 black;
+  // line-height: 25px;
+}
+:global(.editor-preview-side) blockquote,
+:global(.editor-preview) blockquote,
+:global(.markdown-body) blockquote,
+:global(.markdown-reply) blockquote {
+  margin: 20px 0 !important;
+  background-color: #e6effb;
+  padding: 1rem;
+  color: #8796a8;
+  border-left: none;
+}
+
+:global(.editor-preview-active-side) img,
+:global(.editor-preview) img {
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:global(.editor-preview-active-side) blockquote,
+:global(.editor-preview-active-side) dl,
+:global(.editor-preview-active-side) ol,
+:global(.editor-preview-active-side) p,
+:global(.editor-preview-active-side) pre,
+:global(.editor-preview-active-side) table,
+:global(.editor-preview-active-side) ul,
+:global(.editor-preview) blockquote,
+:global(.editor-preview) dl,
+:global(.editor-preview) ol,
+:global(.editor-preview) p,
+:global(.editor-preview) pre,
+:global(.editor-preview) table,
+:global(.editor-preview) ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 30px;
+}
