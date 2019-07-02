@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form, Image } from 'semantic-ui-react';
 import { connect } from 'dva';
-import { notification, Skeleton, Upload, message, Modal } from 'antd';
-import { removeCookie, getCookie } from '@/utils/cookie';
+import { notification, Skeleton, Upload, message } from 'antd';
+import { getCookie } from '@/utils/cookie';
 import ZoomPic from '@/components/ZoomPic';
 
 @connect(({ personProfiles }) => ({
@@ -57,7 +57,6 @@ class PersonProfile extends Component {
           btnStatus: false,
         });
         if (response.status === 10000) {
-          removeCookie('user');
           notification.success({
             message: response.info,
           });

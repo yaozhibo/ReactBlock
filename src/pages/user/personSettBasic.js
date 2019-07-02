@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Button, Form, Image, Placeholder } from 'semantic-ui-react';
 import { connect } from 'dva';
 import { notification, Upload, message } from 'antd';
-import { removeCookie } from '@/utils/cookie';
-import { getCookie } from '@/utils/cookie';
+
+import { getCookie, setCookie } from '@/utils/cookie';
 import ZoomPic from '@/components/ZoomPic';
 
 @connect(({ personSetting }) => ({
@@ -59,10 +59,15 @@ class PersonSettBasic extends Component {
         this.setState({
           btnStatus: false,
         });
-        removeCookie('user');
-        notification.success({
-          message: response.info,
-        });
+        if (response.status === 10000) {
+          const currStoreUser = JSON.parse(getCookie('user'));
+          currStoreUser.nickname = response.data.nickname;
+          setCookie('user', JSON.stringify(currStoreUser), 365);
+
+          notification.success({
+            message: response.info,
+          });
+        }
       },
     });
   };
@@ -71,6 +76,9 @@ class PersonSettBasic extends Component {
     const { user } = this.state;
     user.avatar = avatarPath;
     this.setState({ user });
+    const currStoreUser = JSON.parse(getCookie('user'));
+    currStoreUser.avatar = avatarPath;
+    setCookie('user', JSON.stringify(currStoreUser), 365);
   };
   render() {
     const { user, isIni } = this.state;
