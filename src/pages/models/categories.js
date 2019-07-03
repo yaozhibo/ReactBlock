@@ -1,4 +1,4 @@
-import { queryAcArticle } from '@/services/api'
+import { queryAcArticle } from '@/services/api';
 
 export default {
   namespace: 'categories',
@@ -8,13 +8,15 @@ export default {
     list: [],
   },
   effects: {
-    * fetch({ payload, callback }, { call, put }) {
-      const response = yield call(queryAcArticle, payload)
-      if (response.data.status != 50000) { if (callback) callback() }
+    *fetch({ payload, callback }, { call, put }) {
+      const response = yield call(queryAcArticle, payload);
+      if (response.data.status !== 50000) {
+        if (callback) callback(response.data);
+      }
       yield put({
         type: 'save',
         payload: response.data.data,
-      })
+      });
     },
   },
   reducers: {
@@ -23,7 +25,7 @@ export default {
         ...state,
         category: action.payload.category,
         list: action.payload.articles,
-      }
-    }
-  }
-}
+      };
+    },
+  },
+};

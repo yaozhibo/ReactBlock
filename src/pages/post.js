@@ -60,6 +60,7 @@ class Post extends Component {
             isloading: false,
           });
           const { currUser, postDetail } = this.state;
+          document.title = `${postDetail.title} --沸点`;
           if (currUser.username === postDetail.users.username) {
             this.setState({
               isAuthor: true,

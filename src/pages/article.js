@@ -36,6 +36,7 @@ class article extends Component {
             loadingSkeleton: false,
             article: res.data,
           });
+          document.title = `${res.data.title} --沸点`;
         }
       },
     });

@@ -36,7 +36,10 @@ class Category extends PureComponent {
     dispatch({
       type: 'categories/fetch',
       payload: { ...params },
-      callback: () => {
+      callback: res => {
+        if (res.status === 10000) {
+          document.title = `${res.data.category.name}杂志 --沸点`;
+        }
         this.toggleDataDivStateAndSpinState(false);
       },
     });
