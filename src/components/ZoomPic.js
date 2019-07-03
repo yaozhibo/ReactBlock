@@ -131,15 +131,15 @@ class ZoomPic extends PureComponent {
       <div id={`ZoomPicArea_${areaId}`}>
         {this.props.children}
         <Modal
+          bodyStyle={{ padding: 0 }}
           centered
           visible={this.state.picModalVisible}
           onCancel={() => this.closePicModal()}
           closable={true}
           width={'auto'}
-          style={{ maxWidth: '80%' }}
           footer={null}
         >
-          <Image src={this.state.picModalSrc} />
+          <Image src={this.state.picModalSrc} width={'100%'} />
         </Modal>
       </div>
     );
