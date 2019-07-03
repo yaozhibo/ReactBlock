@@ -12,6 +12,7 @@ class Register extends PureComponent {
     email: '',
     password: '',
     password_confirmation: '',
+    btnStatus: false,
   };
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
@@ -21,6 +22,10 @@ class Register extends PureComponent {
     const { username, email, password, password_confirmation } = this.state;
 
     const params = { username, email, password, password_confirmation };
+
+    this.setState({
+      btnStatus: true,
+    });
 
     dispatch({
       type: 'registUsers/submitRegister',
@@ -40,13 +45,17 @@ class Register extends PureComponent {
               window.location.href = '/user/login';
             },
           });
+        } else {
+          this.setState({
+            btnStatus: false,
+          });
         }
       },
     });
   };
 
   render() {
-    const { username, email, password, password_confirmation } = this.state;
+    const { username, email, password, password_confirmation, btnStatus } = this.state;
 
     return (
       <Grid textAlign="center">
@@ -95,7 +104,7 @@ class Register extends PureComponent {
                 onChange={this.handleChange}
                 value={password_confirmation}
               />
-              <Button color="twitter" fluid size="large">
+              <Button color="twitter" fluid size="large" loading={btnStatus} disabled={btnStatus}>
                 提交
               </Button>
             </Segment>
