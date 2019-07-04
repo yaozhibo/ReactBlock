@@ -73,6 +73,7 @@ class Editor extends PureComponent {
         'bold',
         'italic',
         'heading',
+        'horizontal-rule',
         '|',
         'quote',
         'code',
@@ -82,7 +83,14 @@ class Editor extends PureComponent {
         'preview',
         'fullscreen',
         'side-by-side',
-        'guide',
+        {
+          name: 'guide',
+          action: function customFunction(editor) {
+            window.open('http://www.nanoparticles.cn/post/0HWneKy1q4L8');
+          },
+          className: 'fa fa-cog fa-spin',
+          title: '编辑器使用指南',
+        },
       ],
       element: document.getElementById('markdownEditor').childElementCount,
       autofocus: true,
