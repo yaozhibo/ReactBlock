@@ -32,10 +32,6 @@ class HeaderUserDropdown extends PureComponent {
         icon={<img src={props.userObj.avatar} style={{ width: '20px', height: '20px' }} alt="" />}
       >
         <Dropdown.Menu>
-          <Dropdown.Item href="/editor">
-            <Icon name="write" />
-            撰写文章
-          </Dropdown.Item>
           <Dropdown.Item href={`/user/${props.userObj.username}`}>
             <Icon name="braille" />
             个人中心
