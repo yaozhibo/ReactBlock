@@ -1,4 +1,6 @@
 import { get } from 'lodash';
+import { message } from 'antd';
+import { removeCookie } from '@/utils/cookie';
 
 const inlineAttachment = function inlineAttachment(options, instance) {
   this.settings = { ...inlineAttachment.defaults, ...options };
@@ -267,6 +269,17 @@ inlineAttachment.prototype.isFileAllowed = function isFileAllowed(file) {
 inlineAttachment.prototype.onFileUploadResponse = function onFileUploadResponse(xhr) {
   if (this.settings.onFileUploadResponse.call(this, xhr) !== false) {
     const result = JSON.parse(xhr.responseText);
+    if (result.status === 10000) {
+      message.success(result.info);
+    }
+    if (result.status !== 10000 && result.status !== 40001) {
+      message.warn(result.info);
+    }
+
+    if (result.status === 40001) {
+      message.error(result.info);
+      removeCookie('yjyd_app_session');
+    }
     // 这里需要迎合后端返回的 json 格式，取和 jsonFieldName 对应的值
     const filename = get(result.data, this.settings.jsonFieldName);
 
