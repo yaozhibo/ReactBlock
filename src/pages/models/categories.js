@@ -1,4 +1,4 @@
-import { queryAcArticle } from '@/services/api';
+import { queryAcArticle, querySet } from '@/services/api';
 
 export default {
   namespace: 'categories',
@@ -18,6 +18,16 @@ export default {
         payload: response.data.data,
       });
     },
+    *fetchSet({ payload, callback }, { call, put }) {
+      const response = yield call(querySet, payload);
+      if (response.data.status != 50000) {
+        if (callback) callback();
+      }
+      yield put({
+        type: 'saveSet',
+        payload: response.data.data,
+      });
+    },
   },
   reducers: {
     save(state, action) {
@@ -25,6 +35,12 @@ export default {
         ...state,
         category: action.payload.category,
         list: action.payload.articles,
+      };
+    },
+    saveSet(state, action) {
+      return {
+        ...state,
+        set: action.payload,
       };
     },
   },

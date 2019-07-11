@@ -47,6 +47,12 @@ export default [
         component: './introduce',
       },
       {
+        path: '/magazine',
+        name: 'magazine',
+        title: '杂志 --沸点',
+        component: './magazine',
+      },
+      {
         path: '/category',
         name: 'category',
         // title: '杂志 --沸点',

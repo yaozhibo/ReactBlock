@@ -1,7 +1,17 @@
 import request from '@/utils/request';
 
+//查询categories集合
+export async function querySet(params) {
+  return request('api/ac/set/get', {
+    method: 'post',
+    body: {
+      ...params,
+    },
+  });
+}
+
 /*eslint-disable */
-//查询文章列表
+//查询article列表
 export async function queryAcArticle(params) {
   return request('/api/ac/a/get', {
     method: 'POST',
@@ -14,16 +24,6 @@ export async function queryAcArticle(params) {
 // 查询文章
 export async function queryArticle(params) {
   return request('/api/article/find', {
-    method: 'POST',
-    body: {
-      ...params,
-    },
-  });
-}
-
-// 微信 jssdk 配置
-export async function queryWeChatJsSdkConfig(params) {
-  return request('/api/wechat/jssdkconfig', {
     method: 'POST',
     body: {
       ...params,

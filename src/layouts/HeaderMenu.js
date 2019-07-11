@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Menu, Dropdown, Icon, Button } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 import { getCookie, checkCookie, setCookie, removeCookie } from '@/utils/cookie';
 import HeaderUserDropdown from './HeaderUserDropdown';
 import { connect } from 'dva';
@@ -52,22 +52,7 @@ class HeaderMenu extends PureComponent {
           <h1 style={{ color: '#db2828' }}>沸点</h1>
         </Menu.Item>
         <Menu.Item icon={<Icon name="comments" />} name="社区" key="block" href="/block" />
-        <Dropdown item text="科学杂志">
-          <Dropdown.Menu>
-            <Dropdown.Item key="category:1" href="/category?name=物理">
-              物理
-            </Dropdown.Item>
-            <Dropdown.Item key="category:2" href="/category?name=化学">
-              化学
-            </Dropdown.Item>
-            <Dropdown.Item key="category:3" href="/category?name=生物">
-              生物
-            </Dropdown.Item>
-            <Dropdown.Item key="category:4" href="/category?name=政治">
-              政治
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <Menu.Item icon={<Icon name="rss square" />} name="杂志" key="magazine" href="/magazine" />
         <Menu.Menu position="right">
           {/* <Menu.Item>
             <Input name="search" placeholder="🔍Search..." />
