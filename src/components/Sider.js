@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Drawer, Button, Icon, Affix } from 'antd';
+import { Drawer, Divider, Icon, Affix } from 'antd';
 import style from './index.less';
 
 class Sider extends PureComponent {
@@ -58,14 +58,19 @@ class Sider extends PureComponent {
             {list
               ? list.map((item, k) => {
                   return (
-                    <li key={k}>
-                      <a
-                        style={currSlug === item.slug ? { color: '#808080' } : { color: '#1890ff' }}
-                        href={`/article?category=${category.slug}&slug=${item.slug}`}
-                      >
-                        {item.title}
-                      </a>
-                    </li>
+                    <div>
+                      <li key={k}>
+                        <a
+                          style={
+                            currSlug === item.slug ? { color: '#808080' } : { color: '#1890ff' }
+                          }
+                          href={`/article?category=${category.slug}&slug=${item.slug}`}
+                        >
+                          {item.title}
+                        </a>
+                      </li>
+                      <Divider />
+                    </div>
                   );
                 })
               : ''}
