@@ -1,25 +1,72 @@
-
 .drawerListBtn {
-    box-sizing: border-box;
-    color: rgba(0, 0, 0, 0.65);
-    font-size: 14px;
-    line-height: 1.5;
-    font-feature-settings: "tnum";
-    position: fixed;
-    right: 100px;
-    bottom: 50px;
-    z-index: 10;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    margin: 0px;
-    padding: 0px;
-    font-variant: tabular-nums;
-    list-style: none;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  line-height: 1.5;
+  font-feature-settings: 'tnum';
+  position: fixed;
+  right: 100px;
+  bottom: 50px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  font-variant: tabular-nums;
+  list-style: none;
 }
 
 .drawerHandle {
   position: absolute;
   right: -1;
   top: 72px;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebarListDiv {
+    right: 60px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebarListDiv {
+    right: 20px !important;
+  }
+}
+
+.sidebarListDiv {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+:global(#drawerContainer) .sidebarListBtn {
+  bottom: 100px;
+}
+:global(#drawerContainer) .sidebarListBtn {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+:global(#drawerContainer) :hover .sidebarListBtn {
+  background-color: rgba(0, 0, 0, 0.65);
 }

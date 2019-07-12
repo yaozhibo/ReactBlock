@@ -8,7 +8,6 @@ import ZoomPic from '@/components/ZoomPic';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark-reasonable.css';
-import style from './post.css';
 
 @connect(({ articles }) => ({
   articles,
@@ -54,7 +53,7 @@ class article extends Component {
       <div>
         <Skeleton loading={loadingSkeleton} active>
           <Row type="flex" justify="center">
-            <Sider relateArtc={article.relate_articles} />
+            <Sider relateArtc={article.relate_articles} currSlug={article.slug} />
 
             <Row className={styles.listContainer}>
               <div className={styles.markdown}>
