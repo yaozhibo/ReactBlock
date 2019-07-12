@@ -118,11 +118,11 @@ class PersonLikePost extends Component {
                   style={{ width: '150px', height: '150px' }}
                   alt="logo"
                   src={
-                    item.cover == null
+                    item.post.cover == null
                       ? 'https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png'
-                      : item.cover
+                      : item.post.cover
                   }
-                  href={`/post/${item.slug}`}
+                  href={`/post/${item.post.slug}`}
                 />
               </LazyLoad>
             }
