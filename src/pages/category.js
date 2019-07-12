@@ -38,7 +38,7 @@ class Category extends PureComponent {
       payload: { ...params },
       callback: res => {
         if (res.status === 10000) {
-          document.title = `${res.data.category.name}杂志 --沸点`;
+          document.title = `${res.data.category.name}杂志 --粒子空间`;
         }
         this.toggleDataDivStateAndSpinState(false);
       },

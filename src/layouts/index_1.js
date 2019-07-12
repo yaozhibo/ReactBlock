@@ -65,7 +65,7 @@ class BasicLayout extends React.Component {
           <Grid columns={3} divided>
             <Grid.Row>
               <Grid.Column>
-                <h4>沸点</h4>
+                <h4>粒子空间</h4>
                 <p>
                   <Button type="link" href="/contact" block>
                     关于我们
@@ -98,7 +98,8 @@ class BasicLayout extends React.Component {
           </Grid>
           <Divider />
           <p>
-            沸点 ©2018 Powered by <a href="http://www.nanoparticles.cn/user/yaozhibo">Wiki Yiod</a>
+            粒子空间 ©2018 Powered by{' '}
+            <a href="http://www.nanoparticles.cn/user/yaozhibo">Wiki Yiod</a>
           </p>
         </Footer>
       </div>

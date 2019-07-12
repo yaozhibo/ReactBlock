@@ -49,7 +49,7 @@ class HeaderMenu extends PureComponent {
         style={{ color: 'rgba(0, 0, 0, 0.45)' }}
       >
         <Menu.Item key="home1" header>
-          <h1 style={{ color: '#db2828' }}>沸点</h1>
+          <h1 style={{ color: '#db2828' }}>粒子空间</h1>
         </Menu.Item>
         <Menu.Item icon={<Icon name="comments" />} name="社区" key="block" href="/block" />
         <Menu.Item icon={<Icon name="rss square" />} name="杂志" key="magazine" href="/magazine" />

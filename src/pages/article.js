@@ -35,7 +35,7 @@ class article extends Component {
             loadingSkeleton: false,
             article: res.data,
           });
-          document.title = `${res.data.title} --沸点`;
+          document.title = `${res.data.title} --粒子空间`;
         }
       },
     });

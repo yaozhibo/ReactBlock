@@ -9,7 +9,7 @@ const plugins = [
       antd: true,
       dva: true,
       dynamicImport: { webpackChunkName: true },
-      title: '沸点 - 让灵感沸腾',
+      title: '粒子空间 - 让灵感沸腾',
       dll: false,
       routes: {
         exclude: [
