@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Row, Skeleton, Badge } from 'antd';
+import { Row, Skeleton, Badge, Button, Icon } from 'antd';
 import ResultDiv from '@/components/ResultDiv';
 import Sider from '@/components/Sider';
 import styles from '@/assets/css/markdown.css';
@@ -17,6 +17,10 @@ class article extends Component {
     loadingSkeleton: true,
     article: {
       content: '',
+      pagination: {
+        prev: null,
+        next: null,
+      },
     },
   };
 
@@ -104,6 +108,42 @@ class article extends Component {
                 </ZoomPic>
               </div>
             </Row>
+            <Button.Group style={{ width: '100%', marginTop: '20px' }}>
+              {article.pagination.prev !== null ? (
+                <Button
+                  type="default"
+                  style={{ float: 'left' }}
+                  href={`/article?category=${article.relate_articles.category.slug}&slug=${
+                    article.pagination.prev
+                  }`}
+                >
+                  <Icon type="left" />
+                  上一页
+                </Button>
+              ) : (
+                <Button type="default" style={{ float: 'left' }} disabled>
+                  <Icon type="left" />
+                  没有了
+                </Button>
+              )}
+              {article.pagination.next !== null ? (
+                <Button
+                  type="default"
+                  style={{ float: 'right' }}
+                  href={`/article?category=${article.relate_articles.category.slug}&slug=${
+                    article.pagination.next
+                  }`}
+                >
+                  下一页
+                  <Icon type="right" />
+                </Button>
+              ) : (
+                <Button type="default" style={{ float: 'right' }} disabled>
+                  没有了
+                  <Icon type="right" />
+                </Button>
+              )}
+            </Button.Group>
           </Row>
         </Skeleton>
       </div>

@@ -58,8 +58,8 @@ class Sider extends PureComponent {
             {list
               ? list.map((item, k) => {
                   return (
-                    <div>
-                      <li key={k}>
+                    <div key={`div_${k}`}>
+                      <li key={`li_${k}`}>
                         <a
                           style={
                             currSlug === item.slug ? { color: '#808080' } : { color: '#1890ff' }
