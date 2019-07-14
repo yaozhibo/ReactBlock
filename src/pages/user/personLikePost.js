@@ -4,6 +4,7 @@ import Link from 'umi/link';
 import { connect } from 'dva';
 import { Placeholder, Image } from 'semantic-ui-react';
 import LazyLoad from 'react-lazy-load';
+import { checkCookie } from '@/utils/cookie';
 
 const { confirm } = Modal;
 
@@ -14,6 +15,7 @@ class PersonLikePost extends Component {
   state = {
     postList: [],
     loading: true,
+    isAuthor: false,
   };
   componentDidMount() {
     const { dispatch, username } = this.props;
@@ -28,6 +30,11 @@ class PersonLikePost extends Component {
           postList: response.data.data,
           loading: false,
         });
+        if (checkCookie('user')) {
+          this.setState({
+            isAuthor: true,
+          });
+        }
       },
     });
   }
@@ -48,7 +55,6 @@ class PersonLikePost extends Component {
             obj_type: 1,
           },
           callback: res => {
-            console.log(res);
             if (res.status === 10000) {
               notification.success({
                 message: res.info,
@@ -66,7 +72,7 @@ class PersonLikePost extends Component {
   };
 
   render() {
-    const { postList, loading } = this.state;
+    const { postList, loading, isAuthor } = this.state;
     const IconText = ({ type, text }) => (
       <span>
         <Icon type={type} style={{ marginRight: 8 }} />
@@ -103,14 +109,18 @@ class PersonLikePost extends Component {
               <IconText type="eye-o" text={item.post.eyes} />,
               <IconText type="like-o" text={item.post.appreciate} />,
               <IconText type="message" text={item.post.comments} />,
-              <a
-                onClick={() => {
-                  this.handleCancelLike(likeKey, item.id);
-                }}
-              >
-                <Icon type="eye-invisible" />
-                取消喜欢
-              </a>,
+              isAuthor ? (
+                <a
+                  onClick={() => {
+                    this.handleCancelLike(likeKey, item.id);
+                  }}
+                >
+                  <Icon type="eye-invisible" />
+                  取消喜欢
+                </a>
+              ) : (
+                ''
+              ),
             ]}
             extra={
               <LazyLoad width={150}>
