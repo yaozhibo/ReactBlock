@@ -4,7 +4,7 @@ import Link from 'umi/link';
 import { connect } from 'dva';
 import { Placeholder, Image } from 'semantic-ui-react';
 import LazyLoad from 'react-lazy-load';
-import { checkCookie } from '@/utils/cookie';
+import { checkCookie, getCookie } from '@/utils/cookie';
 
 const { confirm } = Modal;
 
@@ -31,9 +31,10 @@ class PersonLikePost extends Component {
           loading: false,
         });
         if (checkCookie('user')) {
-          this.setState({
-            isAuthor: true,
-          });
+          if (JSON.parse(getCookie('user')).username === username)
+            this.setState({
+              isAuthor: true,
+            });
         }
       },
     });
