@@ -270,3 +270,13 @@ export async function userCancelLikePost(params) {
     },
   });
 }
+
+//搜索
+export async function searching(params) {
+  return request('/api/search', {
+    method: 'POST',
+    body: {
+      ...params,
+    },
+  });
+}

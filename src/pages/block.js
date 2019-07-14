@@ -63,6 +63,7 @@ class Block extends Component {
                 <IconText type="eye-o" text={item.eyes} />,
                 <IconText type="like-o" text={item.appreciate} />,
                 <IconText type="message" text={item.comments} />,
+                <IconText type="schedule" text={item.created_at} />,
               ]}
               extra={
                 <LazyLoad width={150}>
@@ -86,7 +87,11 @@ class Block extends Component {
                     <Avatar src={item.users.avatar} />
                   </a>
                 }
-                title={<Link to={`/post/${item.slug}`}>{item.title}</Link>}
+                title={
+                  <div>
+                    <Link to={`/post/${item.slug}`}>{item.title}</Link>
+                  </div>
+                }
                 description={
                   <div>
                     <p>{item.descr}</p>

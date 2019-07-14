@@ -96,6 +96,11 @@ export default [
         Routes: ['src/middleware/Authorized'],
       },
       {
+        path: '/search',
+        name: 'search',
+        component: './SearchTool',
+      },
+      {
         component: '404',
       },
     ],
