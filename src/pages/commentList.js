@@ -97,11 +97,12 @@ class CommentList extends Component {
 
   render() {
     const comments = this.props.dataSorce;
-    const { postslug, currUser } = this.props;
+    const { postslug, currUser, loadingComment } = this.props;
     const { visibleObj, replyObj } = this.state;
 
     return (
       <List
+        loading={loadingComment}
         className="comment-list"
         header={`${comments.length} 评论`}
         pagination={{

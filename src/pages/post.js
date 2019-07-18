@@ -38,6 +38,7 @@ class Post extends Component {
       title: '',
     },
     isAuthor: false,
+    loadingComment: false,
   };
 
   componentDidMount() {
@@ -75,6 +76,9 @@ class Post extends Component {
     const { match, dispatch } = this.props;
     const slug = match.params.slug;
     const objType = 1; // 1 代表 post
+    this.setState({
+      loadingComment: true,
+    });
 
     dispatch({
       type: 'comments/fetchCommentIndex',
@@ -88,6 +92,9 @@ class Post extends Component {
             commentList: res.data,
           });
         }
+        this.setState({
+          loadingComment: false,
+        });
       },
     });
   };
@@ -205,6 +212,7 @@ class Post extends Component {
       commentList,
       postDetail,
       currUser,
+      loadingComment,
     } = this.state;
     const BraftControls = ['emoji', 'code', 'link', 'text-color'];
 
@@ -322,6 +330,7 @@ class Post extends Component {
             }}
           >
             <CommentList
+              loadingComment={loadingComment}
               dataSorce={commentList}
               postslug={slug}
               delCommentState={key => this.delCommentState(key)}
