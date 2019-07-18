@@ -25,6 +25,13 @@ export default [
         Routes: ['src/middleware/Authorized'],
       },
       {
+        path: '/user/message',
+        name: 'message',
+        title: '消息 --粒子空间',
+        component: './user/message',
+        Routes: ['src/middleware/Authorized'],
+      },
+      {
         path: '/user/:username',
         name: 'personplace',
         title: '个人空间 --粒子空间',

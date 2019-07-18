@@ -71,6 +71,16 @@ export async function infoCurrUser(params) {
   });
 }
 
+//消息
+export async function message(params) {
+  return request('/api/user/message', {
+    method: 'POST',
+    body: {
+      ...params,
+    },
+  });
+}
+
 // 创建 post
 export async function createPost(params) {
   return request('/api/post/create', {
