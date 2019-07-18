@@ -106,6 +106,7 @@ class Message extends PureComponent {
         itemLayout="horizontal"
         loadMore={loadMore}
         dataSource={list}
+        locale={{ emptyText: '没有消息...' }}
         renderItem={item => {
           if (item.type === 1) {
             var itemTitle = (
