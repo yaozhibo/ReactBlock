@@ -116,7 +116,7 @@ class Message extends PureComponent {
                 评论了您的 <a href={item.from_url}>{item.from_name}</a>
               </span>
             );
-            var itemDescription = (
+            var itemDescription = item.origin ? (
               <div
                 style={{
                   background: 'rgba(0, 0, 0, 0.05)',
@@ -129,6 +129,8 @@ class Message extends PureComponent {
                   __html: item.origin.content,
                 }}
               />
+            ) : (
+              <p>该条消息已经被删除</p>
             );
           } else if (item.type === 2) {
             var itemTitle = (
@@ -138,7 +140,7 @@ class Message extends PureComponent {
                 回复了您的留言 ——详情请查看<a href={item.from_url}>{item.from_name}</a>{' '}
               </span>
             );
-            var itemDescription = (
+            var itemDescription = item.origin ? (
               <div
                 style={{
                   background: 'rgba(0, 0, 0, 0.05)',
@@ -151,6 +153,8 @@ class Message extends PureComponent {
                   __html: item.origin.content,
                 }}
               />
+            ) : (
+              <p>该条消息已经被删除</p>
             );
           } else if (item.type === 3) {
             var itemTitle = (
