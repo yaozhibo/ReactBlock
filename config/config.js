@@ -38,8 +38,8 @@ export default {
   alias,
   proxy: {
     '/api': {
-      // target: 'http://localhost:8081',
-      target: 'http://120.227.5.66:8081',
+      target: 'http://localhost:8081',
+      // target: 'http://120.227.5.66:8081',
       changeOrigin: true,
     },
   },

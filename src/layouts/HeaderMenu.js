@@ -53,6 +53,12 @@ class HeaderMenu extends PureComponent {
         </Menu.Item>
         <Menu.Item icon={<Icon name="comments" />} name="社区" key="block" href="/block" />
         <Menu.Item icon={<Icon name="rss square" />} name="杂志" key="magazine" href="/magazine" />
+        <Menu.Item
+          icon={<Icon name="book" />}
+          name="教程"
+          key="tutorial"
+          href="/tutorialCategories"
+        />
         <Menu.Menu position="right">
           <Menu.Item href="/search">
             {/* <Input name="search" placeholder="🔍Search..." /> */}
