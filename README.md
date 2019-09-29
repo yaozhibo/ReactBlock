@@ -5,7 +5,6 @@
 - Internationalization, extracting translation fields from source code, loading language packs on demand
 - Dynamic permissions, different permissions for different menus
 - Elegant and beautiful, Ant Design system
-- Mock data, local data debugging
 
 
 ## Usage
