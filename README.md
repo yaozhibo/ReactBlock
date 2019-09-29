@@ -47,7 +47,4 @@ Modern browsers.
 | --------- | --------- | --------- | --------- | --------- | 
 |IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
-## Contributing
-
-If it work successfully, it would be nice for me.
 
