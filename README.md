@@ -1,6 +1,6 @@
 <img src="https://repository-images.githubusercontent.com/173124449/e8095f80-9d00-11e9-8ad4-f80355ada85e" />
 <h1 align="center">React 社区框架</h1>
-<a href="http://www.nanoparticles.cn/block">预览</a>
+<p><a href="http://www.nanoparticles.cn/block">预览</a></p>
 ## Features
 
 - Internationalization, extracting translation fields from source code, loading language packs on demand
