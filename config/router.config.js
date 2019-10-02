@@ -66,11 +66,6 @@ export default [
         component: './category',
       },
       {
-        path: '/tutorialCategories',
-        name: 'tutorialCategories',
-        component: './tutorialCategories',
-      },
-      {
         path: '/article',
         name: 'article',
         component: './article',
