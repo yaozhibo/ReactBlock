@@ -49,7 +49,9 @@ const LayoutFooter = () => {
       </Grid>
       <Divider />
       <p>
-        <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action">粤ICP备17157343号</a>
+        <a href="http://beian.miit.gov.cn/" target="_blank">
+          粤ICP备17157343号
+        </a>
       </p>
       <p>
         粒子空间 ©2018 Powered by <a href="http://www.nanoparticles.cn/user/yaozhibo">Wiki Yiod</a>
