@@ -49,12 +49,10 @@ const LayoutFooter = () => {
       </Grid>
       <Divider />
       <p>
-        <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action;jsessionid=ZWh9YEYqNoDKI-2P6yPD2CIoi8b9Yokty7K1GC10qTYa33HNdqM0!656317600">
-          粤ICP备17157343号
-        </a>
+        <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action">粤ICP备17157343号</a>
       </p>
       <p>
-        粒子空间 ©2018 Powered by <a href="http://www.nanoparticles.cn/user/yaozhibo">Wiki Yiod</a> 
+        粒子空间 ©2018 Powered by <a href="http://www.nanoparticles.cn/user/yaozhibo">Wiki Yiod</a>
       </p>
     </Footer>
   );
