@@ -13,7 +13,7 @@
 1. Clone project code.
 
 ```bash
-git clone https://github.com/yaozhibo/YiDongDataViewer.git my-project
+git clone https://github.com/yaozhibo/ReactBlock.git my-project
 cd my-project
 ```
 
